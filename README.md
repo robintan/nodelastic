@@ -25,6 +25,7 @@ function send(
 )
 ```
 `attachment` object passed into the attachments array should have the following format 
+
 | Key | Data Type | Type | Default Value |
 | ------ | ------ | ---- | ------------- |
 | **data** | String or Buffer | required | |
