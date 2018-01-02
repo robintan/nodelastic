@@ -23,15 +23,16 @@ class ElasticMail {
         }
       }
 
-      if ( 'attachments' in options ) {
-        options.attachments.forEach( attachment => {
+      const attachments = options.attachments;
+      if ( attachments.length > 0 ) {
+        attachments.forEach( attachment => {
           form.append( 'file', attachment.data, {
             filename : attachment.filename,
             contentType : attachment.contentType || 'text/plain'
           });
         });
       }
-    }) 
+    }); 
   }
 
   send( fromEmail, fromName, toEmail, subject, bodyHtml, bodyText, attachments ) {
