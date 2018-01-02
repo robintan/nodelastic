@@ -19,7 +19,7 @@ class ElasticMail {
 
       for ( let key in options ) {
         if ( key !== 'attachments' ) {
-          form.append( key, String( options[ key ] ) )
+          form.append( key, String( options[ key ] ) );
         }
       }
 
@@ -45,7 +45,7 @@ class ElasticMail {
       bodyHtml,
       bodyText,
       attachments,
-    } )
+    } );
   }
 }
 
