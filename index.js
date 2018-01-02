@@ -49,3 +49,4 @@ class ElasticMail {
   }
 }
 
+module.exports = ElasticMail;
