@@ -24,7 +24,7 @@ class ElasticMail {
       }
 
       const attachments = options.attachments;
-      if ( attachments.length > 0 ) {
+      if ( attachments && attachments.length > 0 ) {
         attachments.forEach( attachment => {
           form.append( 'file', attachment.data, {
             filename : attachment.filename,
