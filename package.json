@@ -1,12 +1,17 @@
 {
   "name": "nodelastic",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "\"NodeJS library for Elasticmail\"",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "",
+  "keywords" : [ "email", "elastic", "elastic email" ],
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/robintan/nodelastic.git"
+  },
+  "author": "Robin Tan",
   "license": "ISC",
   "dependencies": {
     "request": "^2.83.0"
