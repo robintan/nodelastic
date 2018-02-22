@@ -63,13 +63,14 @@ function send( params, attachments ) { ... }
 
 # Example #
 ```js
+var ElasticMail = require('nodelastic');
 var client = new ElasticMail('your_api_key_here');
 var attachments = [ 
   // CSV
   { data: 'id,name\n1,name_1',
     filename: 'attachment1.csv' },
   // PDF
-  { data: fs.createReadStream('filepath_here'),
+  { data: fs.readFileSync('filepath_here'),
     filename: 'attachment2.pdf',
     contentType: 'application/pdf' } 
 ];
@@ -81,11 +82,25 @@ client.send({
   msgTo: [ 'to@domain.com' ],
   msgCC: [ 'cc_1@domain.com', 'cc_2@domain.com' ],
   bodyHtml: '<h1>Hello World</h1>',
-  textHtml: 'Hello World',
+  textHtml: 'Hello World'
 }, attachments).then(console.log);
 
 // will print 
 // {"success":true,"data":{"transactionid":"190d1b03-8b01-41a1-8003-17181c1719b0","messageid":"ilXf1Nm38mxuxemecfdbvw2"}}
+
+// You can also set default options, for example having the same from and the name of the sender
+// the function below is the same as the client.send above
+client.setConfig({
+  from : 'from@domain.com',
+  fromName : 'Sender'
+});
+client.send({
+  subject : 'Subject',
+  msgTo: [ 'to@domain.com' ],
+  msgCC: [ 'cc_1@domain.com', 'cc_2@domain.com' ],
+  bodyHtml: '<h1>Hello World</h1>',
+  textHtml: 'Hello World'
+}, attachments).then(console.log);
 ```
 
 

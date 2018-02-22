@@ -10,19 +10,25 @@ test('send function should call the correct post function (without attachment)',
   const mockPost = jest.fn();
 
   client.post = mockPost;
-  client.send( 'from@email.com', 'From', 'to@email.com', 'Subject', '<h1>Hi</h1>', 'Hello World' );
-  
+  client.send({
+    from : 'from@email.com',
+    fromName : 'From',
+    subject : 'Subject',
+    msgTo: [ 'to@email.com' ],
+    bodyHtml: '<h1>Hi</h1>',
+    textHtml: 'Hello World',
+  });
+
   expect( mockPost.mock.calls[0][0] ).toBe( '/email/send' );
   expect( mockPost.mock.calls[0][1] ).toEqual( {
-    isTransactional: true,
+    isTransactional : true,
     apiKey : 'test_api_key',
     from : 'from@email.com', 
     fromName : 'From', 
-    to : 'to@email.com',
+    msgTo : [ 'to@email.com' ],
     subject : 'Subject',
     bodyHtml : '<h1>Hi</h1>',
-    bodyText : 'Hello World',
-    attachments : undefined,
+    textHtml : 'Hello World',
   } );
 });
 
@@ -31,7 +37,14 @@ test('send function should call the correct post function (with attachment)', ()
   const mockPost = jest.fn();
 
   client.post = mockPost;
-  client.send( 'from@email.com', 'From', 'to@email.com', 'Subject', '<h1>Hi</h1>', 'Hello World', [{
+  client.send({
+    from : 'from@email.com',
+    fromName : 'From',
+    subject : 'Subject',
+    msgTo: [ 'to@email.com' ],
+    bodyHtml: '<h1>Hi</h1>',
+    textHtml: 'Hello World',
+  }, [{
     data: 'attachment_file',
     filename : 'file.txt',
     contentType : 'text/plain',
@@ -39,19 +52,17 @@ test('send function should call the correct post function (with attachment)', ()
 
   expect( mockPost.mock.calls[0][0] ).toBe( '/email/send' );
   expect( mockPost.mock.calls[0][1] ).toEqual( {
-    isTransactional: true,
+    isTransactional : true,
     apiKey : 'test_api_key',
     from : 'from@email.com', 
     fromName : 'From', 
-    to : 'to@email.com',
+    msgTo: [ 'to@email.com' ],
     subject : 'Subject',
     bodyHtml : '<h1>Hi</h1>',
-    bodyText : 'Hello World',
-    attachments : [{
-      data: 'attachment_file',
-      filename : 'file.txt',
-      contentType : 'text/plain',
-    }],
-  } );
-
+    textHtml : 'Hello World',
+  }, [{
+    data: 'attachment_file',
+    filename : 'file.txt',
+    contentType : 'text/plain',
+  }] );
 });
