@@ -39,8 +39,8 @@ function send( params, attachments ) { ... }
 | **bodyText** | String | true | Text email body |
 | **replyTo** | String | false | Email address to reply to |
 | **replyToName** | String | false | Display name of the reply to address |
-| **msgCC** | String | false | List of email recipients (visible to all other recipients of the message as CC MIME header) |
-| **msgBcc** | String | false | List of email recipients (each email is treated seperately) |
+| **msgCC** | Array.<String> | false | List of email recipients (visible to all other recipients of the message as CC MIME header) |
+| **msgBcc** | Array.<String> | false | List of email recipients (each email is treated seperately) |
 | **channel** | String | false | An ID field (max 191 chars) that can be used for reporting [will default to HTTP API or SMTP API] |
 | **charset** | String | false | Text value of charset encoding for example: iso-8859-1, windows-1251, utf-8, us-ascii, windows-1250 and more… |
 | **charsetBodyHtml** | String | false | Sets charset for body html MIME part (overrides default value from charset parameter) |
