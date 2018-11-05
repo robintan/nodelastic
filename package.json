@@ -1,6 +1,6 @@
 {
   "name": "nodelastic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"NodeJS library for Elasticmail\"",
   "main": "index.js",
   "scripts": {
