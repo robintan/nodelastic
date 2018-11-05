@@ -6,10 +6,14 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords" : [ "email", "elastic", "elastic email" ],
-  "repository" : { 
-    "type" : "git",
-    "url" : "https://github.com/robintan/nodelastic.git"
+  "keywords": [
+    "email",
+    "elastic",
+    "elastic email"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robintan/nodelastic.git"
   },
   "author": "Robin Tan",
   "license": "ISC",
@@ -17,6 +21,6 @@
     "request": "^2.83.0"
   },
   "devDependencies": {
-    "jest": "^22.0.4"
+    "jest": "^22.4.4"
   }
 }
